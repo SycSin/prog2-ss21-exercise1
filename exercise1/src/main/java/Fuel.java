@@ -4,6 +4,6 @@ public class Fuel {
    }
 
    public int getFuelConsumption(){
-       return 0;
+       return 2;
    }
 }

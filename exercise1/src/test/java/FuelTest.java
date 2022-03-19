@@ -29,4 +29,15 @@ class FuelTest {
 
         assertEquals(expected, actual);
     }
+
+    @DisplayName("Calculating Fuel Consumptions - Scenario 3")
+    @Test
+    void testGetFuelConsumption_Scenario3(){
+        Fuel fuel = new Fuel(100756);
+
+        int expected = 33583;
+        int actual = fuel.getFuelConsumption();
+
+        assertEquals(expected, actual);
+    }
 }

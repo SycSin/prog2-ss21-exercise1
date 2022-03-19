@@ -1,9 +1,16 @@
 public class Fuel {
 
-   public Fuel(int mass){
-   }
+    private int mass;
 
-   public int getFuelConsumption(){
-       return 2;
-   }
+    public Fuel(int mass){
+        this.mass = mass;
+    }
+
+    public int getMass() {
+        return mass;
+    }
+
+    public int getFuelConsumption(){
+        return (this.getMass() / 3) - 2;
+    }
 }

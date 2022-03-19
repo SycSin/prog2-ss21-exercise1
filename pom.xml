@@ -6,7 +6,10 @@
     <groupId>at.ac.fhcasmpuswien</groupId>
     <artifactId>Prog2-</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>exercise1</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>Prog2 Exercise1</name>
     <description>Prog2 Exercise1</description>

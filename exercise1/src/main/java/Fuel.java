@@ -41,7 +41,12 @@ public class Fuel {
     }
 
     public void setInputFile(File inputFile){
-        this.inputFile = inputFile;
+        if(inputFile != null){
+            this.inputFile = inputFile;
+        }
+        else{
+            throw new NullPointerException("Input File cannot be null!");
+        }
     }
 
     public ArrayList<Integer> loadFromFile(){

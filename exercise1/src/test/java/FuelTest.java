@@ -97,4 +97,10 @@ class FuelTest {
 
         assertEquals(expected, actual);
     }
+
+    @DisplayName("Pass null value to Fuel constructor")
+    @Test
+    void testSetFile_Scenario1(){
+        assertThrows(NullPointerException.class, () -> new Fuel(null), "Input File cannot be null!");
+    }
 }

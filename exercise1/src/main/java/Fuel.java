@@ -46,8 +46,8 @@ public class Fuel {
 
     public ArrayList<Integer> loadFromFile(){
         try {
-            InputStream is = getClass().getClassLoader().getResourceAsStream(this.getInputFile().getName());
-            BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(is)));
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(this.getInputFile().getName());
+            BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(inputStream)));
             String line;
             while ((line = reader.readLine()) != null) {
                 massCollection.add(Integer.parseInt(line));

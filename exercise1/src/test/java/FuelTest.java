@@ -98,6 +98,13 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    @DisplayName("Loading input_nonNumeric.txt into List")
+    @Test
+    void testLoadFromFile_Scenario2(){
+        Fuel fuel = new Fuel(new File("input_nonNumeric.txt"));
+        assertThrows(NumberFormatException.class, fuel::loadFromFile);
+    }
+
     @DisplayName("Pass null value to Fuel constructor")
     @Test
     void testSetFile_Scenario1(){

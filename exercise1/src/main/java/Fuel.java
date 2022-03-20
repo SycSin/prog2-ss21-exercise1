@@ -1,10 +1,14 @@
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Fuel {
 
     private int mass;
     private File inputFile;
+    private ArrayList<Integer> massCollection;
 
     public Fuel(int mass){
         setMass(mass);
@@ -12,6 +16,7 @@ public class Fuel {
 
     public Fuel(File inputFile){
         setInputFile(inputFile);
+        massCollection = new ArrayList<>();
     }
 
     public int getMass(){
@@ -31,11 +36,25 @@ public class Fuel {
         return (this.getMass() / 3) - 2;
     }
 
+    public File getInputFile() {
+        return inputFile;
+    }
+
     public void setInputFile(File inputFile){
         this.inputFile = inputFile;
     }
 
     public ArrayList<Integer> loadFromFile(){
-        return new ArrayList<>();
+        try {
+            InputStream is = getClass().getClassLoader().getResourceAsStream(this.getInputFile().getName());
+            BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(is)));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                massCollection.add(Integer.parseInt(line));
+            }
+        } catch (IOException e) {
+            Logger.getLogger(Fuel.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return massCollection;
     }
 }

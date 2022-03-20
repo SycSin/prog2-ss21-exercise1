@@ -1,12 +1,20 @@
+import java.io.File;
+import java.util.ArrayList;
+
 public class Fuel {
 
     private int mass;
+    private File inputFile;
 
     public Fuel(int mass){
         setMass(mass);
     }
 
-    public int getMass() {
+    public Fuel(File inputFile){
+        setInputFile(inputFile);
+    }
+
+    public int getMass(){
         return mass;
     }
 
@@ -21,5 +29,13 @@ public class Fuel {
 
     public int getFuelConsumption(){
         return (this.getMass() / 3) - 2;
+    }
+
+    public void setInputFile(File inputFile){
+        this.inputFile = inputFile;
+    }
+
+    public ArrayList<Integer> loadFromFile(File inputFile){
+        return new ArrayList<>();
     }
 }

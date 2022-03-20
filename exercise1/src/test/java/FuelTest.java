@@ -66,7 +66,7 @@ class FuelTest {
     @Test
     void testLoadFromFile_Scenario1(){
 
-        Fuel fuel = new Fuel(new File("resources/input.txt"));
+        Fuel fuel = new Fuel(new File("input.txt"));
 
         ArrayList<Integer> expected = new ArrayList<>(
                 List.of(

@@ -93,7 +93,7 @@ class FuelTest {
                 )
         );
 
-        ArrayList<Integer> actual = fuel.loadFromFile(new File("resources/input.txt"));
+        ArrayList<Integer> actual = fuel.loadFromFile();
 
         assertEquals(expected, actual);
     }

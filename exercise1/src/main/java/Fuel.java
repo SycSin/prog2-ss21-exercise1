@@ -11,7 +11,12 @@ public class Fuel {
     }
 
     public void setMass(int mass){
-        this.mass = mass;
+        if(mass >= 0){
+            this.mass = mass;
+        }
+        else{
+            throw new IllegalArgumentException("The mass cannot be negative!");
+        }
     }
 
     public int getFuelConsumption(){

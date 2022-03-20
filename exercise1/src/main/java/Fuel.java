@@ -35,7 +35,7 @@ public class Fuel {
         this.inputFile = inputFile;
     }
 
-    public ArrayList<Integer> loadFromFile(File inputFile){
+    public ArrayList<Integer> loadFromFile(){
         return new ArrayList<>();
     }
 }

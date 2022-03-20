@@ -51,11 +51,13 @@ public class Fuel {
 
     public ArrayList<Integer> loadFromFile(){
         try {
-            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(this.getInputFile().getName());
-            BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(inputStream)));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                massCollection.add(Integer.parseInt(line));
+            if(massCollection.isEmpty()){
+                InputStream inputStream = getClass().getClassLoader().getResourceAsStream(this.getInputFile().getName());
+                BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(inputStream)));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    massCollection.add(Integer.parseInt(line));
+                }
             }
         } catch (IOException e) {
             Logger.getLogger(Fuel.class.getName()).log(Level.SEVERE, null, e);

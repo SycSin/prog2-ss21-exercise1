@@ -44,7 +44,6 @@ class FuelTest {
     @DisplayName("Setting Mass - Scenario 1")
     @Test
     void testSetMass_Scenario1(){
-        Fuel fuel = new Fuel(-2);
-        assertThrows(IllegalArgumentException.class,  () -> fuel.setMass(-2));
+        assertThrows(IllegalArgumentException.class,  () -> new Fuel(-2));
     }
 }

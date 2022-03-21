@@ -33,8 +33,8 @@ public class Fuel {
     }
 
     /*
-     Part One
-     */
+        Part One
+    */
     public int getFuelConsumption(){
         if(this.getInputFile() == null){
             return (this.getMass() / 3) - 2;

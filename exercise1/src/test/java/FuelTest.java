@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FuelTest {
 
-    @DisplayName("Calculating Fuel Consumptions - Scenario 1")
+    @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 1")
     @ParameterizedTest(name = "{index} => mass =''{0}''")
     @ValueSource(ints = {12,14})
     void testGetFuelConsumption_Scenario1(int mass){
@@ -23,7 +23,7 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
-    @DisplayName("Calculating Fuel Consumptions - Scenario 2")
+    @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 2")
     @Test
     void testGetFuelConsumption_Scenario2(){
         Fuel fuel = new Fuel(1969);
@@ -34,7 +34,7 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
-    @DisplayName("Calculating Fuel Consumptions - Scenario 3")
+    @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 3")
     @Test
     void testGetFuelConsumption_Scenario3(){
         Fuel fuel = new Fuel(100756);
@@ -45,13 +45,43 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
-    @DisplayName("Calculating Fuel Consumptions - Scenario 4")
+    @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 4")
     @Test
     void testGetFuelConsumption_Scenario4(){
         Fuel fuel = new Fuel(new File("input.txt"));
         fuel.loadFromFile();
         int expected = 3412531;
         int actual = fuel.getFuelConsumption();
+
+        assertEquals(expected, actual);
+    }
+
+    @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 1")
+    @Test
+    void testGetFuelConsumption2_Scenario1(){
+        Fuel fuel = new Fuel(14);
+        int expected = 2;
+        int actual = fuel.getFuelConsumption2();
+
+        assertEquals(expected, actual);
+    }
+
+    @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 2")
+    @Test
+    void testGetFuelConsumption2_Scenario2(){
+        Fuel fuel = new Fuel(1969);
+        int expected = 966;
+        int actual = fuel.getFuelConsumption2();
+
+        assertEquals(expected, actual);
+    }
+
+    @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 3")
+    @Test
+    void testGetFuelConsumption2_Scenario3(){
+        Fuel fuel = new Fuel(100756);
+        int expected = 50346;
+        int actual = fuel.getFuelConsumption2();
 
         assertEquals(expected, actual);
     }

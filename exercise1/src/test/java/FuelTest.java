@@ -49,7 +49,7 @@ class FuelTest {
     @Test
     void testGetFuelConsumption_Scenario4(){
         Fuel fuel = new Fuel(new File("input.txt"));
-        int expected = 3412761;
+        int expected = 3412531;
         int actual = fuel.getFuelConsumption();
 
         assertEquals(expected, actual);

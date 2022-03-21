@@ -36,7 +36,7 @@ public class Fuel {
         Part One
     */
     public int getFuelConsumption(){
-        if(this.getInputFile() == null){
+        if(isInputFileNull()){
             return (this.getMass() / 3) - 2;
         }
         else{
@@ -46,6 +46,10 @@ public class Fuel {
             }
             return massCollectionCalculated.stream().mapToInt(Integer::intValue).sum();
         }
+    }
+
+    public boolean isInputFileNull(){
+        return inputFile == null;
     }
 
     public File getInputFile() {

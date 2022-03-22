@@ -172,7 +172,8 @@ class FuelTest {
     @DisplayName("Setting Mass - Scenario 2")
     @Test
     public void testSetMass_Scenario2(){
-        Fuel fuel = buildFuelByMass(20);
+        Fuel fuel = buildFuelByMass(100);
+        fuel.setMass(20);
 
         int expected = 20;
         int actual = fuel.getMass();

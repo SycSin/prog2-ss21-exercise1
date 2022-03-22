@@ -91,10 +91,11 @@ class FuelTest {
     }
 
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 1")
+    @ParameterizedTest(name = "{index} => mass =''{0}''")
     @Tag("Part2")
-    @Test
-    public void testGetFuelConsumption2_Scenario1(){
-        Fuel fuel = buildFuelByMass(14);
+    @ValueSource(ints = {12,14})
+    public void testGetFuelConsumption2_Scenario1(int mass){
+        Fuel fuel = buildFuelByMass(mass);
         int expected = 2;
         int actual = fuel.getFuelConsumption2();
 

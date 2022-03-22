@@ -181,7 +181,7 @@ class FuelTest {
         assertThrows(NumberFormatException.class, fuel::loadFromFile);
     }
 
-    @DisplayName("Pass null value to Fuel constructor")
+    @DisplayName("Pass null value to setInputFile method")
     @Test
     void testSetFile_Scenario1(){
         Fuel fuel = buildFuelByFile(new File("input.txt"));

@@ -48,6 +48,21 @@ public class Fuel {
         }
     }
 
+    /*
+        Part Two
+    */
+    public int getFuelConsumption2(){
+        if(isInputFileNull()){
+            return calculateFuel(this.getMass());
+        }
+        else{
+            ArrayList<Integer> massCollectionCalculated = new ArrayList<>();
+            for(int mass : massCollection) {
+                massCollectionCalculated.add(calculateFuel(mass));
+            }
+            return massCollectionCalculated.stream().mapToInt(Integer::intValue).sum();
+        }
+    }
 
     public int calculateFuel(int mass){
         return mass / 3 - 2;

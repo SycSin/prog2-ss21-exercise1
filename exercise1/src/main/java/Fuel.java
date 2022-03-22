@@ -8,7 +8,7 @@ public class Fuel {
 
     private int mass;
     private File inputFile;
-    private ArrayList<Integer> massCollection = new ArrayList<>();
+    private final ArrayList<Integer> massCollection = new ArrayList<>();
 
     public Fuel(int mass){
         setMass(mass);
@@ -24,6 +24,9 @@ public class Fuel {
 
     public void setMass(int mass){
         if(mass >= 0){
+            if (!isMassCollectionEmpty()) {
+                massCollection.clear();
+            }
             this.mass = mass;
         }
         else{
@@ -35,7 +38,7 @@ public class Fuel {
         Part One
     */
     public int getFuelConsumption(){
-        if(isInputFileNull()){
+        if(isMassCollectionEmpty()){
             return calculateFuel(this.getMass());
         }
         else{
@@ -53,7 +56,7 @@ public class Fuel {
     public int getFuelConsumption2(){
         int fuel;
         int fuelSum;
-        if(isInputFileNull()){
+        if(isMassCollectionEmpty()){
             fuel = calculateFuel(this.getMass());
             fuelSum = fuel;
             while(fuel > 0){
@@ -96,7 +99,7 @@ public class Fuel {
 
     public ArrayList<Integer> loadFromFile(){
         try {
-            if(massCollection.isEmpty()){
+            if(isMassCollectionEmpty()){
                 InputStream inputStream = getClass().getClassLoader().getResourceAsStream(this.getInputFile().getName());
                 BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(inputStream)));
                 String line;
@@ -114,7 +117,7 @@ public class Fuel {
         return mass / 3 - 2;
     }
 
-    private boolean isInputFileNull(){
-        return inputFile == null;
+    private boolean isMassCollectionEmpty(){
+        return massCollection.isEmpty();
     }
 }

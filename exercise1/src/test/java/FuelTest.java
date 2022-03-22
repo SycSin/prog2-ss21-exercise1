@@ -14,7 +14,7 @@ class FuelTest {
 
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 1")
     @ParameterizedTest(name = "{index} => mass =''{0}''")
-    @Tag("Part 1")
+    @Tag("Part1")
     @ValueSource(ints = {12,14})
     public void testGetFuelConsumption_Scenario1(int mass){
         Fuel fuel = buildFuelByMass(mass);
@@ -26,7 +26,7 @@ class FuelTest {
     }
 
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 2")
-    @Tag("Part 1")
+    @Tag("Part1")
     @Test
     public void testGetFuelConsumption_Scenario2(){
         Fuel fuel = buildFuelByMass(1969);
@@ -38,7 +38,7 @@ class FuelTest {
     }
 
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 3")
-    @Tag("Part 1")
+    @Tag("Part1")
     @Test
     public void testGetFuelConsumption_Scenario3(){
         Fuel fuel = buildFuelByMass(100756);
@@ -50,7 +50,7 @@ class FuelTest {
     }
 
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 4")
-    @Tag("Part 1")
+    @Tag("Part1")
     @Test
     public void testGetFuelConsumption_Scenario4(){
         Fuel fuel = buildFuelByFile(new File("input.txt"));
@@ -62,7 +62,7 @@ class FuelTest {
     }
 
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 5")
-    @Tag("Part 1")
+    @Tag("Part1")
     @Test
     public void testGetFuelConsumption_Scenario5(){
         Fuel fuel = buildFuelByMass(123);
@@ -75,7 +75,7 @@ class FuelTest {
     }
 
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 6")
-    @Tag("Part 1")
+    @Tag("Part1")
     @Test
     public void testGetFuelConsumption_Scenario6(){
         Fuel fuel = buildFuelByFile(new File("input.txt"));
@@ -88,7 +88,7 @@ class FuelTest {
     }
 
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 1")
-    @Tag("Part 2")
+    @Tag("Part2")
     @Test
     public void testGetFuelConsumption2_Scenario1(){
         Fuel fuel = buildFuelByMass(14);
@@ -99,7 +99,7 @@ class FuelTest {
     }
 
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 2")
-    @Tag("Part 2")
+    @Tag("Part2")
     @Test
     public void testGetFuelConsumption2_Scenario2(){
         Fuel fuel = buildFuelByMass(1969);
@@ -110,7 +110,7 @@ class FuelTest {
     }
 
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 3")
-    @Tag("Part 2")
+    @Tag("Part2")
     @Test
     public void testGetFuelConsumption2_Scenario3(){
         Fuel fuel = buildFuelByMass(100756);
@@ -121,7 +121,7 @@ class FuelTest {
     }
 
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 4")
-    @Tag("Part 2")
+    @Tag("Part2")
     @Test
     public void testGetFuelConsumption2_Scenario4(){
         Fuel fuel = buildFuelByFile(new File("input.txt"));
@@ -133,7 +133,7 @@ class FuelTest {
     }
 
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 5")
-    @Tag("Part 2")
+    @Tag("Part2")
     @Test
     public void testGetFuelConsumption2_Scenario5(){
         Fuel fuel = buildFuelByMass(123);
@@ -146,7 +146,7 @@ class FuelTest {
     }
 
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 6")
-    @Tag("Part 2")
+    @Tag("Part2")
     @Test
     public void testGetFuelConsumption2_Scenario6(){
         Fuel fuel = buildFuelByFile(new File("input.txt"));

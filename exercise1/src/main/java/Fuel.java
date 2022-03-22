@@ -51,13 +51,31 @@ public class Fuel {
         Part Two
     */
     public int getFuelConsumption2(){
+        int fuel;
+        int fuelSum;
         if(isInputFileNull()){
-            return calculateFuel(this.getMass());
+            fuel = calculateFuel(this.getMass());
+            fuelSum = fuel;
+            while(fuel > 0){
+                fuel = calculateFuel(fuel);
+                if(fuel > 0){
+                    fuelSum += fuel;
+                }
+            }
+            return fuelSum;
         }
         else{
             ArrayList<Integer> massCollectionCalculated = new ArrayList<>();
-            for(int mass : massCollection) {
-                massCollectionCalculated.add(calculateFuel(mass));
+            for(int mass : massCollection){
+                fuel = calculateFuel(mass);
+                fuelSum = fuel;
+                while(fuel > 0){
+                    fuel = calculateFuel(fuel);
+                    if(fuel > 0){
+                        fuelSum += fuel;
+                    }
+                }
+                massCollectionCalculated.add(fuelSum);
             }
             return massCollectionCalculated.stream().mapToInt(Integer::intValue).sum();
         }

@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /*
     Repository-Link: https://github.com/SycSin/prog2-ss21-exercise1
- */
+*/
 class FuelTest {
 
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 1")

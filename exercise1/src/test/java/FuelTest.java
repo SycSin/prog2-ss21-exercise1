@@ -56,6 +56,18 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 5")
+    @Test
+    void testGetFuelConsumption_Scenario5(){
+        Fuel fuel = buildFuelByMass(123);
+        fuel.setInputFile(new File("input.txt"));
+        fuel.loadFromFile();
+        int expected = 3412531;
+        int actual = fuel.getFuelConsumption();
+
+        assertEquals(expected, actual);
+    }
+
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 1")
     @Test
     void testGetFuelConsumption2_Scenario1(){

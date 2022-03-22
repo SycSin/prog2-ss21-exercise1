@@ -8,7 +8,7 @@ public class Fuel {
 
     private int mass;
     private File inputFile;
-    private ArrayList<Integer> massCollection;
+    private ArrayList<Integer> massCollection = new ArrayList<>();
 
     public Fuel(int mass){
         setMass(mass);
@@ -16,7 +16,6 @@ public class Fuel {
 
     public Fuel(File inputFile){
         setInputFile(inputFile);
-        massCollection = new ArrayList<>();
     }
 
     public int getMass(){

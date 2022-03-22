@@ -184,7 +184,8 @@ class FuelTest {
     @DisplayName("Pass null value to Fuel constructor")
     @Test
     void testSetFile_Scenario1(){
-        assertThrows(NullPointerException.class, () -> buildFuelByFile(null), "Input File cannot be null!");
+        Fuel fuel = buildFuelByFile(new File("input.txt"));
+        assertThrows(NullPointerException.class, () -> fuel.setInputFile(null), "Input File cannot be null!");
     }
 
     private Fuel buildFuelByMass(int mass) {

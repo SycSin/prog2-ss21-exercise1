@@ -15,7 +15,7 @@ class FuelTest {
     @ParameterizedTest(name = "{index} => mass =''{0}''")
     @ValueSource(ints = {12,14})
     void testGetFuelConsumption_Scenario1(int mass){
-        Fuel fuel = new Fuel(mass);
+        Fuel fuel = buildFuelByMass(mass);
 
         int expected = 2;
         int actual = fuel.getFuelConsumption();
@@ -26,7 +26,7 @@ class FuelTest {
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 2")
     @Test
     void testGetFuelConsumption_Scenario2(){
-        Fuel fuel = new Fuel(1969);
+        Fuel fuel = buildFuelByMass(1969);
 
         int expected = 654;
         int actual = fuel.getFuelConsumption();
@@ -37,7 +37,7 @@ class FuelTest {
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 3")
     @Test
     void testGetFuelConsumption_Scenario3(){
-        Fuel fuel = new Fuel(100756);
+        Fuel fuel = buildFuelByMass(100756);
 
         int expected = 33583;
         int actual = fuel.getFuelConsumption();
@@ -48,7 +48,7 @@ class FuelTest {
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 4")
     @Test
     void testGetFuelConsumption_Scenario4(){
-        Fuel fuel = new Fuel(new File("input.txt"));
+        Fuel fuel = buildFuelByFile(new File("input.txt"));
         fuel.loadFromFile();
         int expected = 3412531;
         int actual = fuel.getFuelConsumption();
@@ -59,7 +59,7 @@ class FuelTest {
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 1")
     @Test
     void testGetFuelConsumption2_Scenario1(){
-        Fuel fuel = new Fuel(14);
+        Fuel fuel = buildFuelByMass(14);
         int expected = 2;
         int actual = fuel.getFuelConsumption2();
 
@@ -69,7 +69,7 @@ class FuelTest {
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 2")
     @Test
     void testGetFuelConsumption2_Scenario2(){
-        Fuel fuel = new Fuel(1969);
+        Fuel fuel = buildFuelByMass(1969);
         int expected = 966;
         int actual = fuel.getFuelConsumption2();
 
@@ -79,7 +79,7 @@ class FuelTest {
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 3")
     @Test
     void testGetFuelConsumption2_Scenario3(){
-        Fuel fuel = new Fuel(100756);
+        Fuel fuel = buildFuelByMass(100756);
         int expected = 50346;
         int actual = fuel.getFuelConsumption2();
 
@@ -89,7 +89,7 @@ class FuelTest {
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 4")
     @Test
     void testGetFuelConsumption2_Scenario4(){
-        Fuel fuel = new Fuel(new File("input.txt"));
+        Fuel fuel = buildFuelByFile(new File("input.txt"));
         fuel.loadFromFile();
         int expected = 5115927;
         int actual = fuel.getFuelConsumption2();
@@ -100,13 +100,13 @@ class FuelTest {
     @DisplayName("Setting Mass - Scenario 1")
     @Test
     void testSetMass_Scenario1(){
-        assertThrows(IllegalArgumentException.class,  () -> new Fuel(-2));
+        assertThrows(IllegalArgumentException.class,  () -> buildFuelByMass(-2));
     }
 
     @DisplayName("Setting Mass - Scenario 2")
     @Test
     void testSetMass_Scenario2(){
-        Fuel fuel = new Fuel(20);
+        Fuel fuel = buildFuelByMass(20);
 
         int expected = 20;
         int actual = fuel.getMass();
@@ -118,7 +118,7 @@ class FuelTest {
     @Test
     void testLoadFromFile_Scenario1(){
 
-        Fuel fuel = new Fuel(new File("input.txt"));
+        Fuel fuel = buildFuelByFile(new File("input.txt"));
 
         ArrayList<Integer> expected = new ArrayList<>(
                 List.of(
@@ -153,13 +153,21 @@ class FuelTest {
     @DisplayName("Loading input_nonNumeric.txt into List")
     @Test
     void testLoadFromFile_Scenario2(){
-        Fuel fuel = new Fuel(new File("input_nonNumeric.txt"));
+        Fuel fuel = buildFuelByFile(new File("input_nonNumeric.txt"));
         assertThrows(NumberFormatException.class, fuel::loadFromFile);
     }
 
     @DisplayName("Pass null value to Fuel constructor")
     @Test
     void testSetFile_Scenario1(){
-        assertThrows(NullPointerException.class, () -> new Fuel(null), "Input File cannot be null!");
+        assertThrows(NullPointerException.class, () -> buildFuelByFile(null), "Input File cannot be null!");
+    }
+
+    private Fuel buildFuelByMass(int mass) {
+        return new Fuel(mass);
+    }
+
+    private Fuel buildFuelByFile(File file) {
+        return new Fuel(file);
     }
 }

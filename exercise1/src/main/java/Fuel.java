@@ -64,11 +64,11 @@ public class Fuel {
         }
     }
 
-    public int calculateFuel(int mass){
+    private int calculateFuel(int mass){
         return mass / 3 - 2;
     }
 
-    public boolean isInputFileNull(){
+    private boolean isInputFileNull(){
         return inputFile == null;
     }
 

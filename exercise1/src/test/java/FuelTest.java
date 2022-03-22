@@ -15,6 +15,10 @@ import static org.junit.jupiter.api.Assertions.*;
 */
 class FuelTest {
 
+    /*
+        Part 1: Testing getFuelConsumption() calculation with a mass
+                of 12 and 14. Expecting a fuel consumption of 2.
+    */
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 1")
     @ParameterizedTest(name = "{index} => mass =''{0}''")
     @Tag("Part1")
@@ -28,6 +32,10 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    /*
+        Part 1: Testing getFuelConsumption() calculation with a mass
+                of 1969. Expecting a fuel consumption of 654.
+    */
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 2")
     @Tag("Part1")
     @Test
@@ -40,6 +48,10 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    /*
+        Part 1: Testing getFuelConsumption() calculation with a mass
+                of 100756. Expecting a fuel consumption of 33583.
+    */
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 3")
     @Tag("Part1")
     @Test
@@ -52,6 +64,11 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    /*
+        Part 1: Testing getFuelConsumption() calculation from a
+                loaded "input.txt" file.
+                Expecting a fuel consumption of 3412531.
+    */
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 4")
     @Tag("Part1")
     @Test
@@ -64,6 +81,11 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    /*
+        Part 1: Testing getFuelConsumption() calculation by first specifying
+                a mass and then loading the masses from an input file.
+                Expecting a fuel consumption of 3412531.
+    */
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 5")
     @Tag("Part1")
     @Test
@@ -77,6 +99,11 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    /*
+        Part 1: Testing getFuelConsumption() calculation by first loading
+                the masses from an input file and then setting the mass to 100756.
+                Expecting a fuel consumption of 33583.
+    */
     @DisplayName("Part 1: Calculating Fuel Consumptions - Scenario 6")
     @Tag("Part1")
     @Test
@@ -90,6 +117,10 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    /*
+        Part 2: Testing getFuelConsumption2() calculation with a mass
+                of 12 and 14. Expecting a fuel consumption of 2.
+    */
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 1")
     @ParameterizedTest(name = "{index} => mass =''{0}''")
     @Tag("Part2")
@@ -102,6 +133,10 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    /*
+        Part 2: Testing getFuelConsumption2() calculation with a mass
+                of 1969. Expecting a fuel consumption of 966.
+    */
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 2")
     @Tag("Part2")
     @Test
@@ -113,6 +148,10 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    /*
+        Part 2: Testing getFuelConsumption2() calculation with a mass
+                of 100756. Expecting a fuel consumption of 50346.
+    */
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 3")
     @Tag("Part2")
     @Test
@@ -124,6 +163,11 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    /*
+        Part 2: Testing getFuelConsumption2() calculation from a
+                loaded "input.txt" file.
+                Expecting a fuel consumption of 5115927.
+    */
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 4")
     @Tag("Part2")
     @Test
@@ -136,6 +180,11 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    /*
+        Part 2: Testing getFuelConsumption2() calculation by first specifying
+                a mass and then loading the masses from an input file.
+                Expecting a fuel consumption of 5115927.
+    */
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 5")
     @Tag("Part2")
     @Test
@@ -149,6 +198,11 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    /*
+        Part 2: Testing getFuelConsumption2() calculation by first loading
+                the masses from an input file and then setting the mass to 100756.
+                Expecting a fuel consumption of 50346.
+    */
     @DisplayName("Part 2: Calculating Fuel Consumptions - Scenario 6")
     @Tag("Part2")
     @Test
@@ -162,6 +216,10 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    /*
+        Testing the setMass() method by passing a negative value to the method.
+        Expecting a IllegalArgumentException.
+    */
     @DisplayName("Setting Mass - Scenario 1")
     @Test
     public void testSetMass_Scenario1(){
@@ -169,6 +227,10 @@ class FuelTest {
         assertThrows(IllegalArgumentException.class,  () -> fuel.setMass(-2));
     }
 
+    /*
+        Testing the setMass() method by passing a mass of 20 to the method.
+        Expecting a mass value of 20.
+    */
     @DisplayName("Setting Mass - Scenario 2")
     @Test
     public void testSetMass_Scenario2(){
@@ -181,6 +243,11 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    /*
+        Testing the loadFromFile() method by loading an "input.txt" text file
+        with a list of masses.
+        Expecting an ArrayList with elements from the content of the "input.txt" file.
+    */
     @DisplayName("Loading input.txt into List")
     @Test
     public void testLoadFromFile_Scenario1(){
@@ -217,6 +284,11 @@ class FuelTest {
         assertEquals(expected, actual);
     }
 
+    /*
+        Testing the loadFromFile() method by loading an "input_nonNumeric.txt" file
+        where elements contain letters provoking a NumberFormatException.
+        Expecting a NumberFormatException.
+    */
     @DisplayName("Loading input_nonNumeric.txt into List")
     @Test
     public void testLoadFromFile_Scenario2(){
@@ -224,17 +296,28 @@ class FuelTest {
         assertThrows(NumberFormatException.class, fuel::loadFromFile);
     }
 
+    /*
+        Testing the setInputFile() method by passing a null-reference to
+        the setInputFile() method.
+        Expecting a NullPointerException with the message "Input File cannot be null!"
+    */
     @DisplayName("Pass null value to setInputFile method")
     @Test
-    public void testSetFile_Scenario1(){
+    public void testSetInputFile_Scenario1(){
         Fuel fuel = buildFuelByFile(new File("input.txt"));
         assertThrows(NullPointerException.class, () -> fuel.setInputFile(null), "Input File cannot be null!");
     }
 
+    /*
+        private method to reduce redundant code duplicates
+    */
     private Fuel buildFuelByMass(int mass) {
         return new Fuel(mass);
     }
 
+    /*
+        private method to reduce redundant code duplicates
+    */
     private Fuel buildFuelByFile(File file) {
         return new Fuel(file);
     }

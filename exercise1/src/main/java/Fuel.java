@@ -63,14 +63,6 @@ public class Fuel {
         }
     }
 
-    private int calculateFuel(int mass){
-        return mass / 3 - 2;
-    }
-
-    private boolean isInputFileNull(){
-        return inputFile == null;
-    }
-
     public File getInputFile() {
         return inputFile;
     }
@@ -98,5 +90,13 @@ public class Fuel {
             Logger.getLogger(Fuel.class.getName()).log(Level.SEVERE, null, e);
         }
         return massCollection;
+    }
+
+    private int calculateFuel(int mass){
+        return mass / 3 - 2;
+    }
+
+    private boolean isInputFileNull(){
+        return inputFile == null;
     }
 }
